@@ -75,6 +75,16 @@ FixNVESllod::FixNVESllod(LAMMPS *lmp, int narg, char **arg) :
 
 /* ---------------------------------------------------------------------- */
 
+FixNVESllod::~FixNVESllod()
+{
+  // delete temperature and pressure if fix created them
+
+  if (tcomputeflag) modify->delete_compute(id_temp);
+  delete[] id_temp;
+}
+
+/* ---------------------------------------------------------------------- */
+
 int FixNVESllod::setmask()
 {
   int mask = 0;

@@ -27,7 +27,7 @@ namespace LAMMPS_NS {
 class FixNVESllod : public Fix {
  public:
   FixNVESllod(class LAMMPS *, int, char **);
-
+  ~FixNVESllod() override;
   int setmask() override;
   void init() override;
   void initial_integrate(int) override;
